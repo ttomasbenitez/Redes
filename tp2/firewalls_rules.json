@@ -1,0 +1,74 @@
+[
+    {
+        "id_switch": 1,
+        "reglas":[
+            {
+                "definicion": "Bloqueo del puerto 80 en UDP",
+                "politica": {
+                    "transporte": {
+                        "puerto_destino": 80
+                    },
+                    "red": {
+                        "protocolo": "udp"
+                    },
+                    "enlace_de_datos": {
+                        "tipo_ip": "ipv4"
+                    }
+                }
+            },
+            {
+                "definicion": "Bloqueo del puerto 80 en TCP",
+                "politica": {
+                    "transporte": {
+                        "puerto_destino": 80
+                    },
+                    "red": {
+                        "protocolo": "tcp"
+                    },
+                    "enlace_de_datos": {
+                        "tipo_ip": "ipv4"
+                    }
+                }
+            },
+            {
+                "definicion": "Descartar paquetes del host 1, con pueto 5001 y con UDP",
+                "politica": {
+                    "transporte": {
+                        "puerto_destino": 5001
+                    },
+                    "red": {
+                        "protocolo": "udp",
+                        "ip_origen": "10.0.0.1" 
+                    },
+                    "enlace_de_datos": {
+                        "tipo_ip": "ipv4"
+                    }
+                }
+            },
+            {
+                "definicion": "Cortar comunicacion host 2 a host 3",
+                "politica": {
+                    "red": {
+                        "ip_origen": "10.0.0.2",
+                        "ip_destino": "10.0.0.3"
+                    },
+                    "enlace_de_datos": {
+                        "tipo_ip": "ipv4"
+                    }
+                }
+            },
+            {
+                "definicion": "Cortar comunicacion host 3 a host 2",
+                "politica": {
+                    "red": {
+                        "ip_origen": "10.0.0.3",
+                        "ip_destino": "10.0.0.2"
+                    },
+                    "enlace_de_datos": {
+                        "tipo_ip": "ipv4"
+                    }
+                }
+            }
+        ]
+    }
+]
